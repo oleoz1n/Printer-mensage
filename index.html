@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="Pt-Br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text</title>
+  </head>
+  <body>
+    <style>
+      body {
+        text-align: center;
+        padding: 100px;
+        word-wrap: break-word;
+      }
+
+      p {
+        font-size: 30px;
+      }
+
+      #mensagem {
+        height: 2rem;
+        width: 20rem;
+      }
+    </style>
+    <p>
+      Mensagem Escrita
+      <span style="color: blue; font-weight: bold"> "on-change"</span>
+    </p>
+    <input type="text" id="mensagem" onchange="capturar()" />
+    <h1 id="escrever"></h1>
+
+    <script type="text/javascript">
+      let msg = document.getElementById("mensagem");
+      let esc = document.getElementById("escrever");
+      function capturar() {
+        if (msg.value.length == 0) {
+          esc.innerHTML = "";
+          alert("Nada Informado");
+        } else {
+          esc.innerHTML = '"' + msg.value + '"';
+        }
+      }
+    </script>
+  </body>
+</html>
