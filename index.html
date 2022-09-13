@@ -22,24 +22,39 @@
         height: 2rem;
         width: 20rem;
       }
+
+      #mensagens:focus {
+        outline-color: red;
+      }
     </style>
     <p>
       Mensagem Escrita
       <span style="color: blue; font-weight: bold"> "on-change"</span>
     </p>
-    <input type="text" id="mensagem" onchange="capturar()" />
+    <input type="text" id="mensagem" onclick="preto()" onchange="capturar()" />
     <h1 id="escrever"></h1>
 
     <script type="text/javascript">
       let msg = document.getElementById("mensagem");
       let esc = document.getElementById("escrever");
+
       function capturar() {
         if (msg.value.length == 0) {
           esc.innerHTML = "";
-          alert("Nada Informado");
+          msg.placeholder =
+            "**********************************************************************************";
+          msg.select();
+          msg.focus();
+          msg.style.backgroundColor = "rgb(236, 236, 236)";
         } else {
           esc.innerHTML = '"' + msg.value + '"';
         }
+      }
+
+      function preto() {
+        msg.style.outlineColor = "black";
+        msg.placeholder = "";
+        msg.style.backgroundColor = "white";
       }
     </script>
   </body>
